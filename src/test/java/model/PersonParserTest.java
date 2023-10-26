@@ -156,7 +156,7 @@ class PersonParserTest {
     @Test
     void parseInputWrongPhone1() {
         String input = "Andreev Andrei Andreevich +7(907)6003212 M 12.12.2021";
-        assertThrows(IllegalPhone.class,
+        assertThrows(IncorrectInput.class,
                 () -> parser.parseInput(input),
                 "Данные/Формат ввода неверны. " +
                         "Неверные данные: +7(907)6003212");
@@ -182,11 +182,11 @@ class PersonParserTest {
 
     @Test
     void parseInputWrongPhone4() {
-        String input = "Petrov Petr Petrovich 1 M 31.08.1995";
+        String input = "Petrov Petr Petrovich 12 M 31.08.1995";
         assertThrows(IllegalPhone.class,
                 () -> parser.parseInput(input),
                 "Формат номера телефона неверный. " +
-                        "1");
+                        "12");
     }
 
     @Test
@@ -200,7 +200,7 @@ class PersonParserTest {
 
     @Test
     void parseInputWrongDate2() {
-    String input = "Ivanov Ivan Ivanovich 89164360842 F 09.05.1900";
+    String input = "Ivanov Ivan Ivanovich 89164360842 F 09.05.1899";
         assertThrows(DateFormatException.class,
                 () -> parser.parseInput(input),
                 "Неверный формат даты. " +

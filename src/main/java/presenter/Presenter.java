@@ -26,10 +26,10 @@ public class Presenter {
     }
 
     public Presenter() {
-        this.archiver = new Archiver<>();
+        this.checker = new Checker();
+        this.archiver = new Archiver<>(this.checker);
         this.viewer = new Viewer();
         this.personParser = new PersonParser();
-        this.checker = new Checker();
     }
 
     /**

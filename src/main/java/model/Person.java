@@ -11,6 +11,18 @@ public class Person {
     private BigInteger phoneNumber;
     private char sex;
 
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getMiddleName() {
+        return middleName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
     /**
      *
      * @param lastName - Фамилия (строка)

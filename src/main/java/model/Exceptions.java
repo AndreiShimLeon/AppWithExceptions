@@ -51,3 +51,19 @@ class IllegalPhone extends IOException{
         this.message += message;
     }
 }
+
+class RecordDuplicateException extends IOException{
+    String message = "Такая запись уже существует. ";
+    public RecordDuplicateException() {
+        super();
+    }
+
+    @Override
+    public String getMessage() {
+        return message;
+    }
+    public RecordDuplicateException(String message) {
+        super();
+        this.message += message;
+    }
+}

@@ -91,23 +91,4 @@ public class PersonParser {
         return new Person(lastName, firstName, middleName, dateOfBirth, phone, sex);
     }
 
-    public static void main(String[] args) {
-        PersonParser parser = new PersonParser();
-//        String input = "FiIOdata.32.3243f";
-//        String input = "Aa Bb Cc 861482 F 12/12/2021";
-        String input = "Aa Bb Cc 89165341222 F 28.02.2021";
-//        String input = "Aa Bb Cc 861482 F 12.12.2021";
-//        String input = "Фамилия Имя Отчество 861482 f 12.12.1025";
-        try {
-            Person person = parser.parseInput(input);
-            System.out.println(person);
-        } catch (IncorrectInput e) {
-            System.out.println(e.getMessage());
-        } catch (DateFormatException e) {
-            System.out.println(e.getMessage());
-        } catch (IllegalPhone e){
-            System.out.println(e.getMessage());
-        }
-
-    }
 }

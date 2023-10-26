@@ -1,6 +1,10 @@
 package model;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.math.BigInteger;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -25,18 +29,14 @@ public class Checker {
         return -3;
     }
 
-    public void checkPhone(BigInteger phone, int digitNumber) throws IllegalPhone{
-        long highLimit = (long) Math.pow(10,digitNumber);
-        System.out.println(highLimit);
-        System.out.println(phone);
-        long lowLimit = (long) Math.pow(10,digitNumber-1);
-        System.out.println(lowLimit);
+    public void checkPhone(BigInteger phone, int digitNumber) throws IllegalPhone {
+        long highLimit = (long) Math.pow(10, digitNumber);
+        long lowLimit = (long) Math.pow(10, digitNumber - 1);
         if (phone.compareTo(BigInteger.valueOf(highLimit)) >= 0 ||
-                phone.compareTo(BigInteger.valueOf(lowLimit)) < 0){
+                phone.compareTo(BigInteger.valueOf(lowLimit)) < 0) {
             throw new IllegalPhone(phone.toString());
         }
     }
-
 
 
     /**
@@ -63,8 +63,10 @@ public class Checker {
             try {
                 int day = Integer.parseInt(dateSplit[0]);
                 int month = Integer.parseInt(dateSplit[1]);
-                if(dateSplit[0].length() != 2) throw new DateFormatException(date+". Правильный формат dd.mm.yyyy");
-                if(dateSplit[1].length() != 2) throw new DateFormatException(date+". Правильный формат dd.mm.yyyy");
+                if (dateSplit[0].length() != 2)
+                    throw new DateFormatException(date + ". Правильный формат dd.mm.yyyy");
+                if (dateSplit[1].length() != 2)
+                    throw new DateFormatException(date + ". Правильный формат dd.mm.yyyy");
                 int year = Integer.parseInt(dateSplit[2]);
 
                 // проверка на отрицательные числа в дате, проверка года и месяца
@@ -104,4 +106,24 @@ public class Checker {
         }
     }
 
+    public <T extends Person> void checkRecord(String path, T person) throws RecordDuplicateException, IOException {
+        FileReader fileReader = new FileReader(path);
+            ArrayList<String> persons = new ArrayList<>();
+        try (BufferedReader br = new BufferedReader(fileReader)){
+            while(br.ready()){
+                persons.add(br.readLine());
+            }
+        }
+
+        for (String personInArray: persons
+        ) {
+            if(personInArray.contains(person.getFirstName()) &&
+            personInArray.contains(person.getMiddleName()) &&
+            personInArray.contains(person.getLastName()) &&
+            personInArray.contains(person.getDateOfBirth()) &&
+            personInArray.contains(String.valueOf(person.getSex())) &&
+            personInArray.contains(person.getPhoneNumber().toString())
+            ) throw new RecordDuplicateException();
+        }
+    }
 }
