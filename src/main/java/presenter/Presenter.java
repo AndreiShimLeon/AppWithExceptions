@@ -6,9 +6,7 @@ import view.Viewer;
 
 public class Presenter {
 
-
     Archiver<Person> archiver;
-    PersonCreator personCreator;
     Viewer viewer;
     PersonParser personParser;
     Checker checker;
@@ -17,16 +15,21 @@ public class Presenter {
      * Конструктор Презентера, принимаем экземпляры архивера, криэйтера и вьювера
      *
      * @param archiver
-     * @param personCreator
      * @param viewer
      */
 
-    public Presenter(Archiver<Person> archiver, PersonCreator personCreator, Viewer viewer, PersonParser personParser, Checker checker) {
+    public Presenter(Archiver<Person> archiver, Viewer viewer, PersonParser personParser, Checker checker) {
         this.archiver = archiver;
-        this.personCreator = personCreator;
         this.viewer = viewer;
         this.personParser = personParser;
         this.checker = checker;
+    }
+
+    public Presenter() {
+        this.archiver = new Archiver<>();
+        this.viewer = new Viewer();
+        this.personParser = new PersonParser();
+        this.checker = new Checker();
     }
 
     /**

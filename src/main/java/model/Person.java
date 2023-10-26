@@ -1,12 +1,14 @@
 package model;
 
+import java.math.BigInteger;
+
 public class Person {
 
     String lastName;
     String middleName;
     String firstName;
     private String dateOfBirth;
-    private int phoneNumber;
+    private BigInteger phoneNumber;
     private char sex;
 
     /**
@@ -19,7 +21,8 @@ public class Person {
      * @param sex - пол (символ)
      */
 
-    public Person(String lastName, String middleName, String firstName, String dateOfBirth, int phoneNumber, char sex) {
+    public Person(String lastName, String firstName, String middleName,
+                  String dateOfBirth, BigInteger phoneNumber, char sex) {
         this.lastName = lastName;
         this.middleName = middleName;
         this.firstName = firstName;
@@ -38,11 +41,11 @@ public class Person {
         this.dateOfBirth = dateOfBirth;
     }
 
-    public int getPhoneNumber() {
+    public BigInteger getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(BigInteger phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -58,8 +61,8 @@ public class Person {
     @Override
     public String toString() {
         return '<' + lastName + '>' +
-                '<' + middleName + '>' +
                 '<' + firstName + '>' +
+                '<' + middleName + '>' +
                 '<' + dateOfBirth + '>' +
                 '<' + phoneNumber +'>'+
                 '<' + sex + '>';
