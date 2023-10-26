@@ -53,7 +53,7 @@ public class PersonParser {
                     sex = string.charAt(0);
                     flagNoActions = false;
                 }
-                else throw new IncorrectInput("Используйте F/M для обозначения пола");
+                else throw new IncorrectInput("Указывайте ФИО полностью и используйте F/M для обозначения пола");
             } else {
                 // попытка вычленить имя, отчество и фамилию из строки:
                 boolean flagName = true;

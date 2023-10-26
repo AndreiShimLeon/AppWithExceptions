@@ -33,7 +33,7 @@ public class Checker {
         System.out.println(lowLimit);
         if (phone.compareTo(BigInteger.valueOf(highLimit)) >= 0 ||
                 phone.compareTo(BigInteger.valueOf(lowLimit)) < 0){
-            throw new IllegalPhone(phone.toString() + "FFFFFF");
+            throw new IllegalPhone(phone.toString());
         }
     }
 
@@ -63,8 +63,8 @@ public class Checker {
             try {
                 int day = Integer.parseInt(dateSplit[0]);
                 int month = Integer.parseInt(dateSplit[1]);
-                if(dateSplit[0].length() != 2) throw new DateFormatException(date+" .Правильный формат dd.mm.yyyy");
-                if(dateSplit[1].length() != 2) throw new DateFormatException(date+" .Правильный формат dd.mm.yyyy");
+                if(dateSplit[0].length() != 2) throw new DateFormatException(date+". Правильный формат dd.mm.yyyy");
+                if(dateSplit[1].length() != 2) throw new DateFormatException(date+". Правильный формат dd.mm.yyyy");
                 int year = Integer.parseInt(dateSplit[2]);
 
                 // проверка на отрицательные числа в дате, проверка года и месяца
