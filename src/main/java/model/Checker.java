@@ -53,7 +53,7 @@ public class Checker {
             throw new DateFormatException(date);
 
         // проверка дней в месяцах
-        switch (month){
+        switch (month-1){
             case 0,2,4,6,7,9,11:
                 if(day > 31) throw new DateFormatException("Много дней");
                 break;
