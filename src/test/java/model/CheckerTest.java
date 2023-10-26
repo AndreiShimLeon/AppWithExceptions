@@ -1,5 +1,6 @@
 package model;
 
+import model.ExceptionsAndErrors.DateFormatException;
 import org.junit.jupiter.api.Assertions;
 
 import static org.junit.jupiter.api.Assertions.*;

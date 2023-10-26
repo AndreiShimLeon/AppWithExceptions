@@ -1,6 +1,8 @@
 package model;
 
-import org.junit.jupiter.api.BeforeEach;
+import model.ExceptionsAndErrors.DateFormatException;
+import model.ExceptionsAndErrors.IllegalPhone;
+import model.ExceptionsAndErrors.IncorrectInput;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

@@ -1,12 +1,16 @@
 package model;
 
+import model.ExceptionsAndErrors.DateFormatException;
+import model.ExceptionsAndErrors.IllegalPhone;
+import model.ExceptionsAndErrors.IncorrectInput;
+import model.ExceptionsAndErrors.RecordDuplicateException;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 
 public class Checker {
     public Checker() {
@@ -104,6 +108,12 @@ public class Checker {
                 throw new DateFormatException(date);
             }
         }
+    }
+
+    public int checkChoice(String input, int start, int last) throws NumberFormatException, IncorrectInput {
+        int inputInt = Integer.parseInt(Character.toString(input.charAt(0)));
+        if(inputInt < start || inputInt > last) throw new IncorrectInput("Неверный выбор, введите нужную цифру.\n",true);
+        return inputInt;
     }
 
     public <T extends Person> void checkRecord(String path, T person) throws RecordDuplicateException, IOException {

@@ -1,4 +1,6 @@
-package model;
+package model.ExceptionsAndErrors;
+
+import model.Checker;
 
 public class ErrorCatcher {
     public ErrorCatcher(Checker checker) {
@@ -13,7 +15,7 @@ public class ErrorCatcher {
      *                  -3 - слишком большое количество подстрок в строке;
      *                  Целое положительное число означает штатную отработку метода
      */
-    public void processNumberOfElements(int errorCode) throws IncorrectInput{
+    public void processNumberOfElements(int errorCode) throws IncorrectInput {
         if (errorCode == -1) {
             throw new IncorrectInput("Неверный разделитель в данных.");
         }

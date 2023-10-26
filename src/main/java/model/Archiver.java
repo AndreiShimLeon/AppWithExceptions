@@ -1,5 +1,10 @@
 package model;
 
+import model.ExceptionsAndErrors.DateFormatException;
+import model.ExceptionsAndErrors.IllegalPhone;
+import model.ExceptionsAndErrors.IncorrectInput;
+import model.ExceptionsAndErrors.RecordDuplicateException;
+
 import java.io.*;
 
 public class Archiver<T extends Person> {
@@ -56,6 +61,7 @@ public class Archiver<T extends Person> {
                 e.printStackTrace(System.out);
             }
         }
+        System.out.println("Запись корректно завершена");
     }
 
 

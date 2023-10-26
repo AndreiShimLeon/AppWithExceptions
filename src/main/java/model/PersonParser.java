@@ -1,5 +1,10 @@
 package model;
 
+import model.ExceptionsAndErrors.DateFormatException;
+import model.ExceptionsAndErrors.ErrorCatcher;
+import model.ExceptionsAndErrors.IllegalPhone;
+import model.ExceptionsAndErrors.IncorrectInput;
+
 import java.math.BigInteger;
 
 public class PersonParser {

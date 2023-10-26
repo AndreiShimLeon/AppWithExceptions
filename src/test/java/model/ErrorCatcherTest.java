@@ -1,10 +1,9 @@
 package model;
 
+import model.ExceptionsAndErrors.ErrorCatcher;
+import model.ExceptionsAndErrors.IncorrectInput;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import java.io.ByteArrayOutputStream;
-import java.io.PrintStream;
 
 class ErrorCatcherTest {
     ErrorCatcher catcher = new ErrorCatcher(new Checker());
